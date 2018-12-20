@@ -1,3 +1,13 @@
 allArticles.txt
 news.json
 Articles
+model10.gensim
+model10.gensim.expElogbeta.npy
+model10.gensim.id2word
+model10.gensim.state
+model5.gensim
+model5.gensim.expElogbeta.npy
+model5.gensim.id2word
+model5.gensim.state
+corpus.pkl
+dictionary.gensim
