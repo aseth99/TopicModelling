@@ -9,9 +9,10 @@ import random
 text_data = []
 with open('allArticles.txt') as f:
     for line in f:
+        # if random.random() > .99:
+        #     
         tokens = prepare_text_for_lda(line)
-        if random.random() > .99:
-            print(tokens)
+        print(tokens)
         text_data.append(tokens)
 
 

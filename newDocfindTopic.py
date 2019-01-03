@@ -4,7 +4,7 @@ from gensim import corpora
 from gensim.models.ldamodel import LdaModel
 
 
-model= LdaModel.load("model5.gensim")
+model= LdaModel.load("model20.gensim")
 
 dictionary = corpora.Dictionary.load('dictionary.gensim')
 
@@ -19,7 +19,7 @@ new_doc_bow = dictionary.doc2bow(new_doc)
 # print(new_doc_bow)
 # print(model.get_document_topics(new_doc_bow))
 for index, score in sorted(model[new_doc_bow], key=lambda tup: -1*tup[1]): #just model[new_doc_bow] if you dont wana sort
-    print("Score: {}\t Topic: {}".format(score, model.print_topic(index, 5)))
+    print("Score: {}\n Topic: {}".format(score, model.print_topic(index, 5)))
 
 # topics = model.print_topics(num_words=4)
 # for topic in topics:
