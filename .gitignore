@@ -9,5 +9,12 @@ model5.gensim
 model5.gensim.expElogbeta.npy
 model5.gensim.id2word
 model5.gensim.state
+model20.gensim
+model20.gensim.expElogbeta.npy
+model20.gensim.id2word
+model20.gensim.state
 corpus.pkl
 dictionary.gensim
+Postcards:
+expectation
+tutorial/
