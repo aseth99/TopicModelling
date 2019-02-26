@@ -22,3 +22,6 @@ with open('allArticles2.txt') as f:
 
 with open('sentence_data2', 'wb') as fp:
     pickle.dump(sentence_data, fp)
+
+#guidedLDA try with tfidf as keywords
+#webscrapers

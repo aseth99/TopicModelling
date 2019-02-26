@@ -78,7 +78,7 @@ print(X.shape)
 
 print(X.sum())
 # Normal LDA without seeding
-model = guidedlda.GuidedLDA(n_topics=10, n_iter=100, random_state=7, refresh=20)
+model = guidedlda.GuidedLDA(n_topics=7, n_iter=100, random_state=7, refresh=20)
 model.fit(X)
 
 topic_word = model.topic_word_
@@ -101,25 +101,25 @@ for i, topic_dist in enumerate(topic_word):
 # Financial & Business Performance:
 # health
 
-seed_topic_list = [['manage', 'hire', 'depart', 'executive', 'director', 'ceo', 'internal'],
+seed_topic_list = [['manage', 'hire', 'depart', 'change', 'ceo', 'internal'],
                    ['expand', 'factory', 'business', 'industry', 'hire'],
                    ['competitor', 'insights', 'share', 'product', 'launch', 'analyze', 'service', 'new'],
                    ['earning', 'outlook', 'sales', 'stock', 'dividends'],
-                   ['health', 'study', 'sugar', 'sick',]]
+                   ['health', 'study', 'sugar', 'sick', 'research']]
 
 
 counter = 0
 for array in seed_topic_list:
     print("topic {}: {}".format(counter, array))
     counter += 1
-model = guidedlda.GuidedLDA(n_topics=10, n_iter=100, random_state=7, refresh=20)
+model = guidedlda.GuidedLDA(n_topics=7, n_iter=100, random_state=7, refresh=20)
 
 seed_topics = {}
 for t_id, st in enumerate(seed_topic_list):
     for word in st:
         seed_topics[word2id[word]] = t_id
 
-model.fit(X, seed_topics=seed_topics, seed_confidence=0.40)
+model.fit(X, seed_topics=seed_topics, seed_confidence=0.70)
 
 n_top_words = 10
 topic_word = model.topic_word_
@@ -133,12 +133,12 @@ doc_topic = model.transform(X)
 # for i in range(5):
 #     print("top topic: {} Document: {}".format(doc_topic[i].argmax(), ', '.join(np.array(vocab)[list(reversed(X[i,:].argsort()))[0:5]])))
 # print(doc_topic)
-for i in range(10):
+for i in range(7):
     print(doc_topic[i])
     print("top topic: {} words: ".format(doc_topic[i].argmax()))
     print(np.array(vocab)[np.argsort(topic_word[doc_topic[i].argmax()])][:-(n_top_words+1):-1])
 
 
-with open('guidedlda_model10.pickle', 'wb') as file_handle:
+with open('guidedlda_model7.pickle', 'wb') as file_handle:
     pickle.dump(model, file_handle)
 
